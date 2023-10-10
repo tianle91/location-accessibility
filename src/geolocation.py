@@ -18,12 +18,13 @@ class Coords:
     speed: Optional[float] = None
 
 
-def parse_geolocation(d: dict) -> Coords:
+def parse_get_geolocation(d: Optional[dict] = None) -> Optional[Coords]:
     """Parse output of streamlit_js_eval.get_geolocation."""
-    return Coords(**d.get("coords", {}))
+    if d is not None:
+        return Coords(**d.get("coords", {}))
 
 
-def get_geocode_top_hit(**kwargs):
+def get_geocode_top_hit(**kwargs) -> Coords:
     params = {**kwargs}
     params.update({"api_key": ORS_KEY})
     response = requests.get(

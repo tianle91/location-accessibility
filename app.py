@@ -3,7 +3,7 @@ from typing import Optional
 import streamlit as st
 from streamlit_js_eval import get_geolocation
 
-from src.geolocation import Coords, get_geocode_top_hit, parse_geolocation
+from src.geolocation import Coords, get_geocode_top_hit, parse_get_geolocation
 
 MIN_ADDRESS_LENGTH = 5
 
@@ -13,9 +13,7 @@ is_near_me = st.checkbox("Near me")
 
 browser_coords: Optional[Coords] = None
 if is_near_me:
-    geo_d = get_geolocation()
-    if geo_d is not None:
-        browser_coords = parse_geolocation(geo_d)
+    browser_coords = parse_get_geolocation(get_geolocation())
 st.write(browser_coords)
 
 center_coords: Optional[Coords] = None
