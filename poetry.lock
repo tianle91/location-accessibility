@@ -107,6 +107,21 @@ files = [
 ]
 
 [[package]]
+name = "branca"
+version = "0.6.0"
+description = "Generate complex HTML+JS pages with Python"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "branca-0.6.0-py3-none-any.whl", hash = "sha256:ae706fc7a88dd0296a58bb11c0cb3c6be358491a3b0abee08fe16b4db17814c0"},
+    {file = "branca-0.6.0.tar.gz", hash = "sha256:55949855214504c7583b71b9a03a84dce2e96a84027613bb53b42d04844ce24e"},
+]
+
+[package.dependencies]
+jinja2 = "*"
+
+[[package]]
 name = "cachetools"
 version = "5.3.1"
 description = "Extensible memoizing collections and decorators"
@@ -117,6 +132,32 @@ files = [
     {file = "cachetools-5.3.1-py3-none-any.whl", hash = "sha256:95ef631eeaea14ba2e36f06437f36463aac3a096799e876ee55e5cdccb102590"},
     {file = "cachetools-5.3.1.tar.gz", hash = "sha256:dce83f2d9b4e1f732a8cd44af8e8fab2dbe46201467fc98b3ef8f269092bf62b"},
 ]
+
+[[package]]
+name = "cattrs"
+version = "23.1.2"
+description = "Composable complex class support for attrs and dataclasses."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "cattrs-23.1.2-py3-none-any.whl", hash = "sha256:b2bb14311ac17bed0d58785e5a60f022e5431aca3932e3fc5cc8ed8639de50a4"},
+    {file = "cattrs-23.1.2.tar.gz", hash = "sha256:db1c821b8c537382b2c7c66678c3790091ca0275ac486c76f3c8f3920e83c657"},
+]
+
+[package.dependencies]
+attrs = ">=20"
+exceptiongroup = {version = "*", markers = "python_version < \"3.11\""}
+typing_extensions = {version = ">=4.1.0", markers = "python_version < \"3.11\""}
+
+[package.extras]
+bson = ["pymongo (>=4.2.0,<5.0.0)"]
+cbor2 = ["cbor2 (>=5.4.6,<6.0.0)"]
+msgpack = ["msgpack (>=1.0.2,<2.0.0)"]
+orjson = ["orjson (>=3.5.2,<4.0.0)"]
+pyyaml = ["PyYAML (>=6.0,<7.0)"]
+tomlkit = ["tomlkit (>=0.11.4,<0.12.0)"]
+ujson = ["ujson (>=5.4.0,<6.0.0)"]
 
 [[package]]
 name = "certifi"
@@ -285,7 +326,7 @@ files = [
 name = "exceptiongroup"
 version = "1.1.1"
 description = "Backport of PEP 654 (exception groups)"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
@@ -311,6 +352,27 @@ files = [
 [package.extras]
 docs = ["furo (>=2023.5.20)", "sphinx (>=7.0.1)", "sphinx-autodoc-typehints (>=1.23,!=1.23.4)"]
 testing = ["covdefaults (>=2.3)", "coverage (>=7.2.7)", "diff-cover (>=7.5)", "pytest (>=7.3.1)", "pytest-cov (>=4.1)", "pytest-mock (>=3.10)", "pytest-timeout (>=2.1)"]
+
+[[package]]
+name = "folium"
+version = "0.14.0"
+description = "Make beautiful maps with Leaflet.js & Python"
+category = "main"
+optional = false
+python-versions = ">=3.5"
+files = [
+    {file = "folium-0.14.0-py2.py3-none-any.whl", hash = "sha256:c894e2c029a8ca40e043a311978a895cefe32d746a94263f807dd7b6b2e9c679"},
+    {file = "folium-0.14.0.tar.gz", hash = "sha256:8ec44697d18f5932e0fdaee8b19da98625de4d0e72cb30ef56f9479f18e11b9f"},
+]
+
+[package.dependencies]
+branca = ">=0.6.0"
+jinja2 = ">=2.9"
+numpy = "*"
+requests = "*"
+
+[package.extras]
+testing = ["pytest"]
 
 [[package]]
 name = "gitdb"
@@ -869,7 +931,7 @@ tests = ["check-manifest", "coverage", "defusedxml", "markdown2", "olefile", "pa
 name = "platformdirs"
 version = "3.5.3"
 description = "A small Python package for determining appropriate platform-specific dirs, e.g. a \"user data dir\"."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
@@ -1155,6 +1217,37 @@ socks = ["PySocks (>=1.5.6,!=1.5.7)"]
 use-chardet-on-py3 = ["chardet (>=3.0.2,<6)"]
 
 [[package]]
+name = "requests-cache"
+version = "1.1.0"
+description = "A persistent cache for python requests"
+category = "main"
+optional = false
+python-versions = ">=3.7,<4.0"
+files = [
+    {file = "requests_cache-1.1.0-py3-none-any.whl", hash = "sha256:178282bce704b912c59e7f88f367c42bddd6cde6bf511b2a3e3cfb7e5332a92a"},
+    {file = "requests_cache-1.1.0.tar.gz", hash = "sha256:41b79166aa8e300cc4de982f7ab7c52af914a785160be1eda25c6e9265969a67"},
+]
+
+[package.dependencies]
+attrs = ">=21.2"
+cattrs = ">=22.2"
+platformdirs = ">=2.5"
+requests = ">=2.22"
+url-normalize = ">=1.4"
+urllib3 = ">=1.25.5"
+
+[package.extras]
+all = ["boto3 (>=1.15)", "botocore (>=1.18)", "itsdangerous (>=2.0)", "pymongo (>=3)", "pyyaml (>=5.4)", "redis (>=3)", "ujson (>=5.4)"]
+bson = ["bson (>=0.5)"]
+docs = ["furo (>=2023.3,<2024.0)", "linkify-it-py (>=2.0,<3.0)", "myst-parser (>=1.0,<2.0)", "sphinx (>=5.0.2,<6.0.0)", "sphinx-autodoc-typehints (>=1.19)", "sphinx-automodapi (>=0.14)", "sphinx-copybutton (>=0.5)", "sphinx-design (>=0.2)", "sphinx-notfound-page (>=0.8)", "sphinxcontrib-apidoc (>=0.3)", "sphinxext-opengraph (>=0.6)"]
+dynamodb = ["boto3 (>=1.15)", "botocore (>=1.18)"]
+json = ["ujson (>=5.4)"]
+mongodb = ["pymongo (>=3)"]
+redis = ["redis (>=3)"]
+security = ["itsdangerous (>=2.0)"]
+yaml = ["pyyaml (>=5.4)"]
+
+[[package]]
 name = "rich"
 version = "13.6.0"
 description = "Render rich text, tables, progress bars, syntax highlighting, markdown and more to the terminal"
@@ -1364,6 +1457,24 @@ watchdog = {version = ">=2.1.5", markers = "platform_system != \"Darwin\""}
 snowflake = ["snowflake-connector-python (>=2.8.0)", "snowflake-snowpark-python (>=0.9.0)"]
 
 [[package]]
+name = "streamlit-folium"
+version = "0.15.0"
+description = "Render Folium objects in Streamlit"
+category = "main"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "streamlit_folium-0.15.0-py3-none-any.whl", hash = "sha256:e2f05d552d4ece6c618e16058c5627a0ecabfa1e47e6419ac8ca5fa627700ebd"},
+    {file = "streamlit_folium-0.15.0.tar.gz", hash = "sha256:2908c98487e914493c730fb71c70fa6dfb1e482a404b7c10b7511579358701c1"},
+]
+
+[package.dependencies]
+branca = "*"
+folium = ">=0.13"
+jinja2 = "*"
+streamlit = ">=1.13.0"
+
+[[package]]
 name = "streamlit-js-eval"
 version = "0.1.5"
 description = "A custom Streamlit component to evaluate arbitrary Javascript expressions."
@@ -1493,6 +1604,21 @@ tzdata = {version = "*", markers = "platform_system == \"Windows\""}
 devenv = ["black", "check-manifest", "flake8", "pyroma", "pytest (>=4.3)", "pytest-cov", "pytest-mock (>=3.3)", "zest.releaser"]
 
 [[package]]
+name = "url-normalize"
+version = "1.4.3"
+description = "URL normalization for Python"
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*"
+files = [
+    {file = "url-normalize-1.4.3.tar.gz", hash = "sha256:d23d3a070ac52a67b83a1c59a0e68f8608d1cd538783b401bc9de2c0fac999b2"},
+    {file = "url_normalize-1.4.3-py2.py3-none-any.whl", hash = "sha256:ec3c301f04e5bb676d333a7fa162fa977ad2ca04b7e652bfc9fac4e405728eed"},
+]
+
+[package.dependencies]
+six = "*"
+
+[[package]]
 name = "urllib3"
 version = "2.0.6"
 description = "HTTP library with thread-safe connection pooling, file post, and more."
@@ -1613,4 +1739,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">3.9.7,<4.0" # should match Dockerfile
-content-hash = "1694b257075ab7ca9555deeeb30d7e839a04b6f06f371ad98545950c9dff5944"
+content-hash = "4357e845e165ed9f81a70ef274d781dbf0dcf23e102719e1a2708411c73f6c39"

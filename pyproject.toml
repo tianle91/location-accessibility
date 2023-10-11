@@ -16,6 +16,8 @@ readme = "README.md"
 python = ">3.9.7,<4.0" # should match Dockerfile
 streamlit = "^1.27.2"
 streamlit-js-eval = "^0.1.5"
+requests-cache = "^1.1.0"
+streamlit-folium = "^0.15.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "*"
