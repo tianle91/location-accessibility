@@ -113,7 +113,7 @@ if center_coords is not None:
         ).add_to(m)
 
     selected_isochrone_display_names = st.multiselect(
-        label="Plot isochrones", options=ISOCHRONE_OPTIONS.keys(), default=None
+        label="Plot isochrones", options=ISOCHRONE_OPTIONS.keys(), default=["Walking"]
     )
     isochrone_minutes = st.number_input(
         label="Isochrone minutes", step=15, min_value=15, max_value=120, value=30
