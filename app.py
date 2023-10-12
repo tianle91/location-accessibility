@@ -109,7 +109,7 @@ if center_coords is not None:
         folium.Marker(
             location=work_lat_lon,
             tooltip="Work",
-            icon=Icon(color="yellow"),
+            icon=Icon(color="orange"),
         ).add_to(m)
 
     selected_isochrone_display_names = st.multiselect(
